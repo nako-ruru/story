@@ -21,5 +21,7 @@ public class TopicController {
     public void newTopic(TopicCommand command) {
         topicService.newTopic(command);
     }
+    
+    public Topic
 
 }

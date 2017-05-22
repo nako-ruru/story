@@ -26,4 +26,8 @@ public class TopicService {
         ).save();
     }
 
+    public TopicResult topic(TopicParameter parameter) {
+
+    }
+
 }

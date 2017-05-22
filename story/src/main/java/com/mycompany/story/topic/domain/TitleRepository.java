@@ -5,4 +5,5 @@ package com.mycompany.story.topic.domain;
  */
 public interface TitleRepository {
     void save(Title topic);
+    Title findOne(String topicId);
 }

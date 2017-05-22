@@ -5,4 +5,5 @@ package com.mycompany.story.topic.domain;
  */
 public interface ParticipantRepository {
     void save(Participant topic);
+    Participant findOne(String participantId);
 }

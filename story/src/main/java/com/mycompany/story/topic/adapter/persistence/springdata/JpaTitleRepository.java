@@ -18,4 +18,9 @@ public class JpaTitleRepository implements com.mycompany.story.topic.domain.Titl
     public void save(Title topic) {
         titleRepository.save(topic);
     }
+
+    @Override
+    public Title findOne(String topicId) {
+        return titleRepository.findOne(topicId);
+    }
 }

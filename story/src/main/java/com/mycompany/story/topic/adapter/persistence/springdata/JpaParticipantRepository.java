@@ -12,10 +12,15 @@ import javax.annotation.Resource;
 public class JpaParticipantRepository implements com.mycompany.story.topic.domain.ParticipantRepository {
 
     @Resource
-    private ParticipantRepository topicRepository;
+    private ParticipantRepository participantRepository;
 
     @Override
     public void save(Participant topic) {
-        topicRepository.save(topic);
+        participantRepository.save(topic);
+    }
+
+    @Override
+    public Participant findOne(String participantId) {
+        return participantRepository.findOne(participantId);
     }
 }
