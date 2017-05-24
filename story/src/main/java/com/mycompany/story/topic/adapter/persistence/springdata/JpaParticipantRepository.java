@@ -4,6 +4,7 @@ import com.mycompany.story.topic.domain.Participant;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/5/13.
@@ -23,4 +24,11 @@ public class JpaParticipantRepository implements com.mycompany.story.topic.domai
     public Participant findOne(String participantId) {
         return participantRepository.findOne(participantId);
     }
+
+    @Override
+    public List<Participant> findByTopicId(String topicId) {
+        return participantRepository.findByTopicId(topicId);
+    }
+
+
 }
