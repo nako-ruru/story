@@ -5,6 +5,15 @@
  */
 package com.mycompany.story;
 
+import com.google.common.collect.ImmutableMap;
+import com.mycompany.story.topic.application.TopicResult;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.springframework.web.client.RestTemplate;
+
 /**
  *
  * @author Administrator
@@ -16,8 +25,22 @@ public class StoryEditor extends javax.swing.JPanel {
      */
     public StoryEditor() {
         initComponents();
+        try {
+            initData();
+        } catch (IOException ex) {
+            Logger.getLogger(StoryEditor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
+    private void initData() throws IOException {
+        RestTemplate restTemplate = new RestTemplate();
+        Properties properties = new Properties();
+        properties.load(new InputStreamReader(getClass().getResourceAsStream("/story.ini")));
+        String host = properties.getProperty("host");
+        String url = host + "/story";
+        restTemplate.getForObject(host, TopicResult.class, ImmutableMap.of("topicId", "1"));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
